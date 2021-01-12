@@ -1,0 +1,166 @@
+body{
+background-color:#FBFAF6;
+}
+
+.shifted-content-2{
+background-color:#FBFAF6;
+}
+
+.container, .container-fluid{
+background-color:#FBFAF6;
+}
+
+.sidebar-header{
+background-color:#969189;
+}
+
+.sidebar-menu{
+    background-color:#E7DFD1;
+    font-weight:700;
+}
+
+#banner{
+position:fixed;
+}
+
+.req{
+color:grey;
+font-size:10px;
+}
+
+.input{
+font-size:12px;
+border-radius:4px;
+}
+
+th, td, p, input {
+    font:14px Verdana;
+}
+
+table{
+border-radius:4px;
+box-shadow:3px 3px 3px grey;
+
+}
+table, th,td
+{
+    margin: 0 auto;
+    align:center;
+    padding: 4px 4px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    background-color:#494742;
+    color:white;
+    font-weight:bold;
+    border:1px solid white;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+td {
+    font-size:13px;
+    border-collapse: collapse;
+    border:1px dotted grey;
+}
+
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+  border: 1px solid black;
+
+}
+
+    tr:nth-child(odd) {
+    background-color: #fcfdfe;
+     border: 1px solid black;
+}
+
+
+.pg{
+    display:none;
+}
+
+.cellinput{
+display:inline;
+background: rgba(0, 128, 0, 0.2);
+border:0;
+}
+
+.red{
+color:red;
+font-weight:600;
+}
+
+.green{
+color:green;
+font-weight:600;
+}
+
+#edit_inp0{
+background-color:#DDDDDD;
+}
+
+/* BOLD COLS */
+.col3,.col4{
+font-weight:700;
+}
+
+.prepend{
+width:85px;
+font-weight:400;
+}
+
+#btn-find,#btn-connect{
+background-color:green;
+color:white;
+border-radius:5px;
+font-weight:700;
+}
+
+#update{
+background-color:blue;
+color:white;
+border-radius:5px;
+font-weight:700;
+}
+
+#add{
+background-color:blue;
+color:white;
+border-radius:5px;
+font-weight:700;
+}
+
+#edit-image, #add-image{
+background-color:white;
+width:350px;
+height:350px;
+}
+
+#find-result{
+height:450px;
+overflow:scroll;
+}
+#show_images{
+vertical-align:middle;
+}
+
+#file_path_edit,#file_path_add,#edit_inp9,#add_inp9{
+width:350px;
+}
+
+#add_image_file,#update_image_file{
+margin: 8px 3px 3px 3px;
+background:blue;
+color:white;
+}
+
+#delete_image{
+margin: 8px 3px 3px 70px;
+background:red;
+color:white;
+}

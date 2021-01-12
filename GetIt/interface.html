@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Get it v0.9</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+      <link rel="stylesheet" href="style.css">
+      <script type="text/javascript" src="/eel.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+   </head>
+
+
+   <body id="body" oncontextmenu="return false" ondragstart="return false">
+   
+      <!-- SIDE BAR -->
+      <aside class="sidebar pos-absolute z-1"
+         data-role="sidebar"
+         data-toggle="#sidebar-toggle-1"
+         id="sb4"
+         data-shift=".shifted-content-2"
+         data-static-shift=".shifted-content-2"
+         data-static="md">
+         <div class="sidebar-header">
+               <img src="globe.png" width=100 height=100">
+            <span class="title fg-white"></span>
+            <span class="subtitle fg-white">© 2020 Hananel Ben David.</span>
+         </div>
+         <ul class="sidebar-menu">
+            <li class="mnu" id="mnu-connect"><a ><span class="mif-link icon" ></span>Connect</a></li>
+            <li class="mnu" id="mnu-find"><a><span class="mif-search icon" ></span>Find</a></li>
+            <li class="divider"></li>
+            <li class="mnu" id="mnu-add"><a><span class="mif-add icon"></span>Add</a></li>
+            <li class="divider"></li>
+            <li class="mnu" id="mnu-quit"><a><span class="mif-exit icon"></span>Quit</a></li>
+         </ul>
+      </aside>
+      
+   <!--CONTENT CONTAINER-->
+   <div class="shifted-content-2 container">
+     <img src="banner.jpg">
+
+          <!--CONNECT PAGE-->
+         <div class="container pg" id="connect-page">
+            <div class="grid">
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <h5>Connect to server</h5>
+                     <hr/>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="cell-3 offset-1">
+                     <input type="text" class= "input" data-role="input" data-prepend="IP:"  id="inp-ip" maxlength="16">
+                  </div>
+                  <div class="cell-2">
+                     <button class="button light drop-shadow" id="btn-this">(This computer)</button>
+                   </div>
+                  <div class="cell-3">
+                     <input type="text" class= "input" data-role="input" data-prepend="Port:" id="inp-port" maxlength="5" value=1337 readonly>
+                  </div>
+                  <div class="cell-2">
+                     <button class="button light drop-shadow" id="btn-connect">Connect</button>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="cell-3 offset-2" id="con-status"></div>
+               </div>
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <h5>Database configuration</h5>
+                     <hr/>
+                  </div>
+               </div>
+                  <div class="row">
+                     <div class="cell-3"><input type="text" class= "input" data-role="input" data-prepend="Host"  id="inp-host" maxlength="20" value="localhost"></div>
+                     <div class="cell-3">
+                        <input type="text" class= "input" data-role="input" data-prepend="User" id="inp-user" maxlength="5" value="root">
+                     </div>
+                     <div class="cell-3"><input type="text" class= "input" data-role="input" data-prepend="Password"  id="inp-password" maxlength="20"></div>
+                     <div class="cell-3">
+                        <input type="text" class= "input" data-role="input" data-prepend="Database" id="inp-db" maxlength="5" value="db1">
+                     </div>
+                  </div>
+            </div>
+         </div>
+
+
+         <!--FIND PAGE-->
+         <div class="container pg" id="find-page">
+            <div class="grid">
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <h5>Find entry in database</h5>
+                     <hr/>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-8">
+                     <div class="row">
+                        <div class="cell-6">
+                           <input class="input" type="text" data-role="input" data-prepend="Code"  id="inp1" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Department"  id="inp2" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Company"  id="inp3" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Name"  id="inp4" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-12">
+                           <input class="input" type="text"  data-role="input" data-prepend="Description"  id="inp5" maxlength="50">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-4">
+                           <select class="input" data-filter="false" data-role="select" data-prepend="Color" id="inp6">
+                              <option selected value="Any">Any</option>
+                              <option value="Black">Black</option>
+                              <option value="White">White</option>
+                              <option value="Green">Green</option>
+                              <option value="Blue">Blue</option>
+                              <option value="Yellow">Yellow</option>
+                              <option value="Purple">Purple</option>
+                              <option value="Red">Red</option>
+                           </select>
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Units"  id="inp7" maxlength="20">
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Price"  id="inp8" maxlength="20">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <input type="checkbox" id="show_images" name="show_images" value="show"> <label for="show_images" style="font-size:13px;vertical-align:bottom; ">Show Images</label>
+                     </div>
+                     <div class="row">
+                        <div class="cell-2">
+                           <button class="button light drop-shadow" id="btn-find">Find</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <div id="find-result"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <!--EDIT PAGE-->
+         <div class="container pg" id="edit-page">
+            <div class="grid">
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <h5>Edit/Delete entry</h5>
+                     <hr/>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-8">
+                     <div class="row">
+                        <div class="cell-6">
+                           <input class="input" type="text" data-role="input" data-prepend="Code*"  id="edit_inp1" maxlength="15">
+                        </div>
+                        <div class="cell-4 offset-2">
+                           <input class="input" type="text" data-role="input" data-prepend="ID*"  id="edit_inp0" maxlength="4" readonly>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Department*"  id="edit_inp2" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Company*"  id="edit_inp3" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Name*"  id="edit_inp4" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-12">
+                           <input class="input" type="text"  data-role="input" data-prepend="Description"  id="edit_inp5" maxlength="50">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-4">
+                           <select class="input" data-filter="false" data-role="select" data-prepend="Color*" id="edit_inp6">
+                              <option value="Black">Black</option>
+                              <option value="White">White</option>
+                              <option value="Green">Green</option>
+                              <option value="Blue">Blue</option>
+                              <option value="Yellow">Yellow</option>
+                              <option value="Purple">Purple</option>
+                              <option value="Red">Red</option>
+                           </select>
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Units*" id="edit_inp7" maxlength="20">
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Price" id="edit_inp8" maxlength="20">
+                        </div>
+                     </div>
+                      <div class="row" style="font-size:12px;">*required fields</div>
+                     <div class="row">
+                        <div class="cell-3">
+                           <button class="button light drop-shadow" id="update">update</button>
+                        </div>
+                        <div class="cell-3">
+                           <button class="button light drop-shadow" id="delete" style="background-color:red;color:white;">delete</button>
+                        </div>
+                     </div>
+                  <div class="row">
+                        <div id="edit-result" class="cell-3">
+                        </div>
+                        </div>
+                  </div>
+                  <div class="col-4">
+                     <div class="row">
+                        <div id="edit-image"></div>
+                        <!-- IMAGE PREVIEW -->
+                     </div>
+                     <div class="row">
+                        <div class="cell-12">
+                           <input class="input" type="text" data-role="input" data-prepend="Image file" id="edit_inp9">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <input type="file" data-role="file" name="file_path_edit" id="file_path_edit" data-prepend="update:">
+                        <script>$("#file_path_edit").empty();</script>
+                     </div>
+                     <div class="row">
+                        <button class="button light drop-shadow" id="update_image_file">Update image</button>
+                        <button class="button light drop-shadow" id="delete_image">Delete image</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <!--ADD PAGE-->
+         <div class="container pg" id="add-page">
+            <div class="grid">
+               <div class="row">
+                  <div class="cell-12 text-center">
+                     <h5>Add new entry</h5>
+                     <hr/>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-8">
+                     <div class="row">
+                        <div class="cell-6">
+                           <input class="input" type="text" data-role="input" data-prepend="Code*"  id="add_inp1" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Department*"  id="add_inp2" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Company*"  id="add_inp3" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-8 ">
+                           <input class="input" type="text"  data-role="input" data-prepend="Name*"  id="add_inp4" maxlength="15">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-12">
+                           <input class="input" type="text"  data-role="input" data-prepend="Description"  id="add_inp5" maxlength="50">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-4">
+                           <select class="input" data-filter="false" data-role="select" data-prepend="Color*" id="add_inp6">
+                              <option value="Black">Black</option>
+                              <option value="White">White</option>
+                              <option value="Green">Green</option>
+                              <option value="Blue">Blue</option>
+                              <option value="Yellow">Yellow</option>
+                              <option value="Purple">Purple</option>
+                              <option value="Red">Red</option>
+                           </select>
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Units*" id="add_inp7" maxlength="20">
+                        </div>
+                        <div class="cell-4">
+                           <input class="input" type="text" data-role="input" data-prepend="Price" id="add_inp8" maxlength="20">
+                        </div>
+                        <div class="row" style="font-size:12px;">*required fields</div>
+                     </div>
+                     <div class="row">
+                        <div class="cell-4">
+                           <button class="button light drop-shadow" id="add">Add</button>
+                        </div>
+                     </div>
+                     <div class="row">
+                     <div id="add-result" class="cell-3">
+                      </div>
+                     </div>
+                  </div>
+                  <div class="col-4">
+                     <div class="row">
+                        <div id="add-image"></div>
+                        
+                        <!-- IMAGE PREVIEW -->
+                     </div>
+                     <div class="row">
+                        <div class="cell-12">
+                           <input class="input" type="text" data-role="input" data-prepend="Image file" id="add_inp9">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <input type="file" data-role="file" name="file_path_edit" id="file_path_add" data-prepend="update:">
+                     </div>
+                     <div class="row">
+                        <button class="button light drop-shadow" id="add_image_file">Update image</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script>
+       //FIXING JSON STRINGS
+       function fixJson(dt){
+       ds=JSON.stringify(dt).replaceAll("\\","");
+       ds=ds.replaceAll("[[","[");
+       ds=ds.replaceAll("]]","]");
+       ds=ds.replaceAll("\"]","]");
+       ds=ds.replaceAll("[\"","[");
+       ds=ds.replaceAll("\"}]\,[{\"","\"}\,{\"");
+       ds=ds.replaceAll("\"[\'{","[{");
+       ds=ds.replaceAll("}\']\"","}]");
+   
+       return ds;
+       }
+         		
+      //GETTING IP FROM THIS COMPUTER
+      $("#btn-this").click(function(){
+           eel.get_ip()(function(data){
+           $("#inp-ip").val(data);
+           });
+      });
+
+
+      //NAVIGATE
+      $(".mnu").css({"background-color":"#E7DFD1","color":"black"});
+      $("#mnu-connect").css({"background-color":"#494742","color":"white"});
+      $(".pg").css("display","none");
+      $("#connect-page").css("display","block");
+
+      $("#mnu-connect").click(function(){
+      $(".mnu").css({"background-color":"#E7DFD1","color":"black"});
+      $("#mnu-connect").css({"background-color":"#494742","color":"white"});
+      $(".pg").css("display","none");
+      $("#connect-page").css("display","block");
+
+      });
+
+      $("#mnu-find").click(function(){
+         $("#find-result").empty();
+         $(".mnu").css({"background-color":"#E7DFD1","color":"black"});
+         $("#mnu-find").css({"background-color":"#494742","color":"white"});
+         $(".pg").css("display","none");
+         $("#find-page").css("display","block");
+         $("#mnu-find").html('<a><span class="mif-search icon" ></span>Find</a>');
+
+      });
+
+      $("#mnu-add").click(function(){
+         $(".mnu").css({"background-color":"#E7DFD1","color":"black"});
+         $("#mnu-add").css({"background-color":"#494742","color":"white"});
+         $(".pg").css("display","none");
+         $("#add-page").css("display","block");
+         $("#add-result").html("");
+
+         $("#add-image_file").click(function(){
+            $("#add_inp9").val(document.getElementById("file_path_add").files[0].name);
+             var fil= $("#add_inp9").val();
+            document.getElementById("add-image").innerHTML='<img src="./'+fil+'" width=350 height=350 alt="where is the image?">';
+            });
+      });
+
+         	$("#mnu-quit").click(function(){
+         	$(".mnu").css({"background-color":"#E7DFD1","color":"black"});
+         	$("#mnu-quit").css({"background-color":"#494742","color":"white"});
+         	$(".pg").css("display","none");
+         	eel.quit_app()();
+         	window.close();
+         	});
+
+            //CONNECT TO SERVER
+         	$("#btn-connect").click(function(){
+         		charip = $("#inp-ip").val();
+         		char_port = $("#inp-port").val();
+         		char_host = $("#inp-host").val();
+         		char_user = $("#inp-user").val();
+         		char_password = $("#inp-password").val();
+         		char_db = $("#inp-db").val();
+
+         		eel.start_app(charip,char_port,char_host,char_user,char_password,char_db)(function(data) {
+         		if(data=="Connection OK"){
+         		$("#con-status").css({"color": "green", "font-weight": "600"});
+         		}
+         		if(data!="Connection OK"){
+         		$("#con-status").css({"color": "red", "font-weight": "600"});
+         		}
+         		$("#con-status").html(data);
+         		});
+         	});
+
+            //FIND ENTRY
+         	$("#btn-find").click(function(){
+
+         		charip = $("#inp-ip").val();
+         		char1 = $("#inp1").val();
+         		char2 = $("#inp2").val();
+         		char3 = $("#inp3").val();
+         		char4 = $("#inp4").val();
+         		char5 = $("#inp5").val();
+         		char6 = $("#inp6").val();
+         		char7 = $("#inp7").val();
+         		char8 = $("#inp8").val();
+
+               //"NUL" IS AN EMPTY FIELD, (We use it in case of an empty field, return all the results)
+         		fld1="nul";
+         		fld2="nul";
+         		fld3="nul";
+         		fld4="nul";
+         		fld5="nul";
+         		fld6="nul";
+         		fld7="nul";
+         		fld8="nul";
+
+         		if(char1!=""){
+         		fld1="code";}
+         		if(char2!=""){
+         		fld2="department";}
+         		if(char3!=""){
+         		fld3="company";}
+         		if(char4!=""){
+         		fld4="name";}
+         		if(char5!=""){
+         		fld5="description";}
+         		if(char6!="Any"){
+         		fld6="color";}
+         		if(char7!=""){
+         		fld7="units";}
+         		if(char8!=""){
+         		fld8="price";}
+         		if(char6=="Any"){
+         		fld6="nul";char6="";}
+
+               //RESET ALL THE FIELDS
+         		$("#inp1").val("");
+         		$("#inp2").val("");
+         		$("#inp3").val("");
+         		$("#inp4").val("");
+         		$("#inp5").val("");
+         		$("#inp6").val("Any");
+         		$("#inp7").val("");
+         		$("#inp8").val("");
+
+         		eel.find_entry(charip,fld1,char1,fld2,char2,fld3,char3,fld4,char4,fld5,char5,fld6,char6,fld7,char7,fld8,char8)(function(data) {
+         		var dt=data;
+
+               let dat=fixJson(dt);
+               let obj = jQuery.parseJSON(dat);
+               var myData = obj;
+   
+               // EXTRACT VALUE FOR HTML HEADER.
+               var col = [];
+               for (var i = 0; i < myData.length; i++) {
+                   for (var key in myData[i]) {
+                       if (col.indexOf(key) === -1) {
+                           col.push(key);
+                       }
+                   }
+               }
+               
+           	// CREATE DYNAMIC TABLE.
+         	var table = document.createElement("table");
+
+         	// CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+          	var tr = table.insertRow(-1);                   // TABLE ROW.
+           	for (var i = 0; i < col.length; i++) {
+         		var th = document.createElement("th");      // TABLE HEADER.
+         		th.innerHTML = col[i];
+         		tr.appendChild(th);
+         	}
+
+         	// ADD JSON DATA TO THE TABLE AS ROWS.
+         	for (var i = 0; i < myData.length; i++) {
+          		tr = table.insertRow(-1);
+         		for (var j = 0; j < col.length; j++) {
+         			var tabCell = tr.insertCell(-1);
+         			var aa=myData[i][col[0]];
+         			var bb=myData[i][col[1]];
+         			var cc=myData[i][col[2]];
+         			var dd=myData[i][col[3]];
+         			var ee=myData[i][col[4]];
+         			var ff=myData[i][col[5]];
+         			var gg=myData[i][col[6]];
+         			var hh=myData[i][col[7]];
+         			var ii=myData[i][col[8]];
+         			var jj=myData[i][col[9]];
+
+         			if(j<9){
+         			tabCell.innerHTML = "<span class='col"+j+"'>"+myData[i][col[j]]+"</span>";
+         			if(j==6){
+         			tabCell.innerHTML = "<span style='color:"+myData[i][col[j]]+";font-size:14px;'>●</span><span class='col"+j+"'>"+myData[i][col[j]]+"</span>";
+         				}
+         			}
+                    //SHOW IMAGES, IF THE CHECKBOX IS CHECKED
+         			else if(jj!=""){
+                    var x = document.getElementById("show_images").checked;
+         			    if(x==true){
+                          ip=$("#inp-ip").val();
+                          port=$("#inp-port").val();
+                          eel.download_image('http://'+ip+':'+port+'/getimage/',jj);
+                          tabCell.innerHTML = "<div id='image'><img src='downloaded-images/"+jj+"' width='100' height='100' alt='(Missing file)'></div>";
+         			    }
+         			}
+         			else{
+         			tabCell.innerHTML = "";
+         			}
+            }
+
+         		var tabCell = tr.insertCell(-1);
+         		tabCell.innerHTML = "<div onclick='edit(`"+aa+"`,`"+bb+"`,`"+cc+"`,`"+dd+"`,`"+ee+"`,`"+ff+"`,`"+gg+"`,`"+hh+"`,`"+ii+"`,`"+jj+"`)'><span class='mif-pencil icon'></span></div>";
+         		}
+
+         	// FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+         	var divContainer = document.getElementById("find-result");
+         	divContainer.innerHTML = "";
+         	divContainer.appendChild(table);
+         	});
+         	});
+
+            //ADD ENTRY
+         	$("#add").click(function(){
+         		charip = $("#inp-ip").val();
+         		char1 = $("#add_inp1").val();
+         		char2 = $("#add_inp2").val();
+         		char3 = $("#add_inp3").val();
+         		char4 = $("#add_inp4").val();
+         		char5 = $("#add_inp5").val();
+         		char6 = $("#add_inp6").val();
+         		char7 = $("#add_inp7").val();
+         		char8 = $("#add_inp8").val();
+         		char_file=$("#add_inp9").val();
+
+         		if (char1=="" || char2=="" || char3=="" || char4==""|| char6==""|| char6==""){
+                   $("#add-result").html("Please fill in ALL required fields.");
+                   $("#add-result").attr("class","red");
+         		}
+
+         	   else{
+               eel.add_entry(charip,char1,char2,char3,char4,char5,char6,char7,char8,char_file)(function(data) {
+
+                      let dat=fixJson(data);
+                      dat=dat.replace("[","");
+                      dat=dat.replace("]","");
+                      let obj = JSON.parse(dat);
+                      var myData = obj;
+                      
+                      $("#add-result").html(myData.response);
+                      if(myData.response=="Added successfully"){
+                           $("#add-result").attr("class","green");
+                      }
+                      else{
+                           $("#add-result").attr("class","red");
+                      }
+                    });
+
+         //UPLOAD IMAGE, IF EXIST
+         char_file=$("#add_inp9").val();
+         if(char_file!=""){
+         eel.upload_image(charip,char_file)(function(data) {
+         $("#upload_result").html(char_file+" "+data);
+         });
+         }
+
+         $("#add_inp1").val("");
+         $("#add_inp2").val("");
+         $("#add_inp3").val("");
+         $("#add_inp4").val("");
+         $("#add_inp5").val("");
+         $("#add_inp6").val("");
+         $("#add_inp7").val("");
+         $("#add_inp8").val("");
+
+         	   }
+             });
+
+            //SENDING FULL ENTRY TO EDIT FORM
+         	function edit(a,b,c,d,e,f,g,h,i,j){
+         		$(".pg").css("display","none");
+         		$("#edit-page").css("display","block");
+         		$("#mnu-find").html('<a><span class="mif-search icon" ></span>Edit</a>');
+                $("#edit_inp0").val(a);
+                $("#edit_inp1").val(b);
+                $("#edit_inp2").val(c);
+                $("#edit_inp3").val(d);
+                $("#edit_inp4").val(e);
+                $("#edit_inp5").val(f);
+                $("#edit_inp6").val(g);
+                $("#edit_inp7").val(h);
+                $("#edit_inp8").val(i);
+                $("#edit-result").html("");
+
+                if(j!=""){
+                $("#edit_inp9").val(j);
+                $("#edit-image").html("<img src='downloaded-images/"+j+"' width=350 height=350>");
+                }
+                 else{
+                 $("#edit_inp9").val("noimage.jpg");
+                 ("#edit-image").html("<img src='noimage.jpg' width=350 height=350>");
+                 }
+         	}
+
+               $("#update_image_file").click(function(){
+                  $("#edit_inp9").val(document.getElementById("file_path_edit").files[0].name);
+                  var c=$("#edit_inp9").val();
+                  $("#edit-image").html("<img src='"+c+"' width=350 height=350>");
+               });
+               
+               $("#delete_image").click(function(){
+                  $("#edit_inp9").val("noimage.jpg");
+                  var c=$("#edit_inp9").val();
+                  $("#edit-image").html("<img src='noimage.jpg' width=350 height=350>");
+               });
+
+
+
+            //UPDATE THE ENTRY
+         	$("#update").click(function(){
+
+         		charip = $("#inp-ip").val();
+         		char0 = $("#edit_inp0").val();
+         		char1 = $("#edit_inp1").val();
+         		char2 = $("#edit_inp2").val();
+         		char3 = $("#edit_inp3").val();
+         		char4 = $("#edit_inp4").val();
+         		char5 = $("#edit_inp5").val();
+         		char6 = $("#edit_inp6").val();
+         		char7 = $("#edit_inp7").val();
+         		char8 = $("#edit_inp8").val();
+
+         		var char_file_updated=$("#edit_inp9").val();
+
+
+         		if (char1=="" || char2=="" || char3=="" || char4=="" || char6==""|| char7==""){
+         		$("#edit-result").html("Please fill in ALL required fields.");
+         		$("#edit-result").attr("class","red");
+         		}
+
+         	   else{
+         		   eel.update_entry(charip,char0,char1,char2,char3,char4,char5,char6,char7,char8,char_file_updated)(function(data) {
+         		   let dat=fixJson(data);
+         		   dat=dat.replace("[","");
+         		   dat=dat.replace("]","");
+         		   let obj = JSON.parse(dat);
+         		   var myData = obj;
+         		   $("#edit-result").html(myData.response);
+         		   if(myData.response=="Updated successfully"){
+         		   $("#edit-result").attr("class","green");
+         			$("#mnu-find").html('<a><span class="mif-search icon" ></span>Find</a>');
+         		   }
+         		   else{
+         		   $("#edit-result").attr("class","red");
+         		   }
+
+
+         		   });
+         		   if(char_file_updated!="noimage.jpg"){
+         					eel.upload_image(charip,char_file_updated)(function(data) {
+         					$("#upload_result").html(char_file_updated+" "+data);
+         					});
+         		   }
+
+         		   $("#edit_inp0").empty();
+         		   $("#edit_inp1").empty();
+         		   $("#edit_inp2").empty();
+         		   $("#edit_inp3").empty();
+         		   $("#edit_inp4").empty();
+         		   $("#edit_inp5").empty();
+         		   $("#edit_inp7").empty();
+         		   $("#edit-image").empty();
+         		}
+         });
+            //DELETE THE ENTRY
+         	 $("#delete").click(function(){
+         		charip = $("#inp-ip").val();
+         		char0 = $("#edit_inp0").val();
+         		char1 = $("#edit_inp1").val();
+         		char2 = $("#edit_inp2").val();
+         		char3 = $("#edit_inp3").val();
+         		char4 = $("#edit_inp4").val();
+         		char5 = $("#edit_inp5").val();
+         		char6 = $("#edit_inp6").val();
+         		char7 = $("#edit_inp7").val();
+
+         		if (char1=="" || char2=="" || char3=="" || char4=="" || char6==""|| char7==""){
+         		$("#edit-result").html("Please fill in ALL required fields.");
+         		$("#edit-result").attr("class","red");
+         		}
+
+         	   else{
+         		   eel.delete_entry(charip,char0)(function(data) {
+         		   let dat=fixJson(data);
+         		   dat=dat.replace("[","");
+         		   dat=dat.replace("]","");
+         		   let obj = JSON.parse(dat);
+         		   var myData = obj;
+         		   $("#edit-result").html(myData.response);
+         		   if(myData.response=="Deleted successfully"){
+         		   $("#edit-result").attr("class","green");
+         			$("#mnu-find").html('<a><span class="mif-search icon" ></span>Find</a>');
+         		   }
+         		   else{
+         		   $("#edit-result").attr("class","red");
+         		   }
+         		   });
+         		}
+         });
+
+
+      </script>
+   </body>
+</html>
